@@ -1,0 +1,31 @@
+@if (profile$ | async; as response) {
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">{{ response.profile.designation || 'GST & Tax Consultant' }}</div>
+      <h1>Clear tax advice.<br><em>Confident decisions.</em></h1>
+      <p class="hero-text">{{ response.profile.about || 'Professional GST, income tax, accounting and compliance support for individuals, professionals and growing businesses.' }}</p>
+      <div class="hero-actions"><a class="btn btn-dark" routerLink="/contact">Book a Consultation <span>→</span></a><a class="text-link" routerLink="/services">Explore services</a></div>
+      <div class="mini-trust"><span class="dot"></span><span>Professional • Transparent • Timely</span></div>
+    </div>
+    <div class="hero-card">
+      <div class="card-top"><span>BUSINESS & TAX</span><span>01</span></div>
+      <div class="card-icon">₹</div>
+      <h3>Tax & compliance,<br>made simpler.</h3>
+      <p>From registrations and returns to bookkeeping and ongoing compliance, get structured support without the jargon.</p>
+      <div class="card-line"></div>
+      <div class="card-bottom"><strong>{{ response.profile.experience || 'Professional Experience' }}</strong><span>Expert guidance</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip"><div class="container trust-grid"><div><strong>GST</strong><span>Registration & Returns</span></div><div><strong>ITR</strong><span>Filing & Tax Support</span></div><div><strong>BOOKS</strong><span>Accounting & Records</span></div><div><strong>COMPLIANCE</strong><span>Ongoing Business Support</span></div></div></section>
+
+<section class="section intro"><div class="container intro-grid"><div><div class="eyebrow">WHY WORK WITH US</div><h2>Reliable support for the financial details that matter.</h2></div><div><p>Good tax support is more than filing forms. It is about understanding your situation, keeping records organised and helping you stay prepared throughout the year.</p><a class="text-link" routerLink="/about">Learn about our approach →</a></div></div></section>
+
+<section class="section services-section"><div class="container"><div class="section-head"><div><div class="eyebrow">OUR SERVICES</div><h2>Practical solutions for every stage.</h2></div><a class="text-link" routerLink="/services">View all services →</a></div><div class="service-grid">@for (service of (services$ | async); track service._id || service.slug) {<a class="service-card" [routerLink]="['/services', service.slug]"><span class="service-number">0{{ $index + 1 }}</span><h3>{{ service.title }}</h3><p>{{ service.shortDescription }}</p><span class="arrow">↗</span></a>} @empty {<div class="empty-services">Services will appear here once they are added from the admin/API.</div>}</div></div></section>
+
+<section class="section process"><div class="container"><div class="process-heading"><div class="eyebrow">HOW IT WORKS</div><h2>A straightforward process.</h2></div><div class="process-grid"><div><span>01</span><h3>Understand</h3><p>Share your requirement and relevant details.</p></div><div><span>02</span><h3>Plan</h3><p>Get clear guidance on documents, timelines and next steps.</p></div><div><span>03</span><h3>Complete</h3><p>We help you move through filing and compliance with confidence.</p></div></div></div></section>
+
+<section class="cta"><div class="container cta-inner"><div><div class="eyebrow">LET'S TALK</div><h2>Have a tax or GST question?</h2><p>Tell us what you need help with and we'll take it from there.</p></div><a class="btn btn-light" routerLink="/contact">Start a conversation →</a></div></section>
+}

@@ -1,0 +1,11 @@
+const express = require('express');
+const { getServices, getServiceBySlug, createService, updateService, deleteService, updateServiceStatus } = require('../controllers/serviceController');
+const authMiddleware = require('../middleware/authMiddleware');
+const router = express.Router();
+router.get('/', getServices);
+router.get('/:slug', getServiceBySlug);
+router.post('/', authMiddleware, createService);
+router.put('/:id', authMiddleware, updateService);
+router.delete('/:id', authMiddleware, deleteService);
+router.patch('/:id/status', authMiddleware, updateServiceStatus);
+module.exports = router;
