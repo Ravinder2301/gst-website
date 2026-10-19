@@ -2,10 +2,10 @@
   "name": "gst-tax-website-backend",
   "version": "1.0.0",
   "description": "Backend foundation for GST & Tax Consultant website",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
